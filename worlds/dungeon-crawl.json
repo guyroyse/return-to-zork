@@ -1,0 +1,180 @@
+{
+  "name": "Dungeon Crawl",
+  "description": "A crumbling archway leads down into an ancient dungeon. Past the bones of those who came before lie a haunted crypt, a vault that seems too easy, and a throne where something still stirs.",
+  "startingRoom": "dungeon-entrance",
+  "player": {
+    "name": "Adventurer",
+    "description": "A brave adventurer delving into the depths of an ancient dungeon"
+  },
+  "rooms": [
+    {
+      "id": "dungeon-entrance",
+      "name": "Dungeon Entrance",
+      "description": "A crumbling stone archway marks the entrance to the ancient dungeon. Moss and vines cover the weathered walls, and the air grows noticeably colder as it flows from the darkness within. Old bones and rusted weapons litter the ground near the entrance, grim warnings from previous adventurers. Your torch flickers in the draft. A heavy wooden door leads deeper into the dungeon.",
+      "statuses": ["dim", "ominous"],
+      "fixtures": [
+        {
+          "id": "warning-sign",
+          "name": "Weathered Warning Sign",
+          "description": "A wooden sign hangs crookedly from a rusted chain. Faded letters warn: 'Turn back, ye who value life. Only death awaits below.'",
+          "statuses": ["weathered", "ominous"],
+          "actions": ["read", "examine"]
+        },
+        {
+          "id": "old-bones",
+          "name": "Skeletal Remains",
+          "description": "The scattered bones of previous adventurers lie among broken weapons and torn leather armor. Something killed them before they even entered the dungeon proper.",
+          "statuses": ["ancient", "picked-clean"],
+          "actions": ["search", "examine"]
+        }
+      ]
+    },
+    {
+      "id": "torch-hall",
+      "name": "Hall of Torches",
+      "description": "A long stone corridor stretches ahead, lined with ancient torch sconces. Some still hold the charred remains of torches from long ago. The walls are carved with faded murals depicting battles between heroes and monsters. The floor is covered in dust and debris. A door to the south leads back to the entrance, while a passage continues north into darkness. An iron gate blocks the way east.",
+      "statuses": ["dusty", "dark"],
+      "fixtures": [
+        {
+          "id": "torch-sconces",
+          "name": "Iron Torch Sconces",
+          "description": "Rusted iron brackets line the walls, designed to hold torches. Most are empty, but a few still contain ancient, unlit torches.",
+          "statuses": ["rusted", "empty"],
+          "actions": ["light torch", "take torch", "examine"]
+        },
+        {
+          "id": "ancient-murals",
+          "name": "Carved Murals",
+          "description": "Faded carvings depict armored warriors fighting dragons, demons, and undead creatures. One section shows a great treasure vault guarded by a fearsome beast.",
+          "statuses": ["faded", "ancient"],
+          "actions": ["examine", "decipher"]
+        }
+      ]
+    },
+    {
+      "id": "guard-room",
+      "name": "Ancient Guard Room",
+      "description": "This chamber once served as a guard post. Stone benches line the walls, and weapon racks stand empty. A large table in the center is covered in dust and cobwebs. Strange scratching sounds echo from the shadows. The passage south leads back to the torch hall, while stairs descend deeper into the dungeon to the north.",
+      "statuses": ["abandoned", "eerie"],
+      "fixtures": [
+        {
+          "id": "weapon-racks",
+          "name": "Empty Weapon Racks",
+          "description": "Wooden racks that once held spears, swords, and shields. Most are empty, but a few rusted weapons remain.",
+          "statuses": ["empty", "rotted"],
+          "actions": ["search", "take weapon"]
+        },
+        {
+          "id": "guard-table",
+          "name": "Dusty Table",
+          "description": "A heavy wooden table covered in thick dust. Old dice, playing cards, and empty bottles suggest guards once passed time here. A leather-bound logbook lies open.",
+          "statuses": ["dusty", "cluttered"],
+          "actions": ["search", "read logbook", "clear dust"]
+        }
+      ]
+    },
+    {
+      "id": "treasure-room",
+      "name": "Treasure Vault",
+      "description": "Beyond the iron gate lies a small vault. Gold coins are scattered across the floor, and a wooden chest sits against the far wall. The room glitters in your torchlight, but something feels wrong. The air is unnaturally still. The iron gate leads back west to the hall.",
+      "statuses": ["glittering", "trapped"],
+      "fixtures": [
+        {
+          "id": "gold-coins",
+          "name": "Scattered Gold",
+          "description": "Gold coins lie scattered across the floor, as if someone dropped them in haste. They gleam temptingly in the torchlight.",
+          "statuses": ["scattered", "tempting"],
+          "actions": ["collect", "examine", "count"]
+        },
+        {
+          "id": "treasure-chest",
+          "name": "Ornate Chest",
+          "description": "A wooden chest bound with brass fittings sits against the wall. It's unlocked but appears undisturbed. Too easy?",
+          "statuses": ["unlocked", "suspicious"],
+          "actions": ["open", "examine for traps", "search"]
+        }
+      ]
+    },
+    {
+      "id": "crypt",
+      "name": "Burial Crypt",
+      "description": "The stairs open into a large crypt filled with stone sarcophagi. Carved effigies of ancient warriors lie atop each tomb, their stone faces stern and watchful. The air is thick with the smell of death and ancient dust. Shadows dance in your torchlight, and you swear you hear whispers. Stone stairs lead back up, and a dark archway leads deeper into the crypt to the east.",
+      "statuses": ["dark", "haunted"],
+      "fixtures": [
+        {
+          "id": "sarcophagi",
+          "name": "Ancient Tombs",
+          "description": "Stone sarcophagi line the walls, each sealed with heavy lids. Ancient runes warn against disturbing the dead.",
+          "statuses": ["sealed", "cursed"],
+          "actions": ["open", "read runes", "examine"]
+        },
+        {
+          "id": "stone-effigies",
+          "name": "Warrior Effigies",
+          "description": "Carved stone warriors lie atop the tombs, clutching stone swords and shields. Their eyes seem to follow you in the flickering torchlight.",
+          "statuses": ["watchful", "ancient"],
+          "actions": ["examine", "touch"]
+        }
+      ]
+    },
+    {
+      "id": "boss-chamber",
+      "name": "Chamber of the Guardian",
+      "description": "A vast circular chamber with a domed ceiling. Ancient pillars support the roof, and a raised dais dominates the center of the room. Upon the dais sits a massive stone throne, and upon that throne... something stirs in the darkness. Piles of treasure surround the throne: gold, gems, weapons, and armor. The archway west leads back to the crypt.",
+      "statuses": ["dangerous", "treasure-filled"],
+      "fixtures": [
+        {
+          "id": "stone-throne",
+          "name": "Ancient Throne",
+          "description": "A massive throne carved from black stone sits atop the dais. It radiates an aura of power and menace. Something ancient and powerful has claimed this seat.",
+          "statuses": ["occupied", "powerful"],
+          "actions": ["examine", "approach", "sit"]
+        },
+        {
+          "id": "treasure-hoard",
+          "name": "Guardian's Hoard",
+          "description": "Mountains of gold coins, precious gems, enchanted weapons, and magical artifacts surround the throne. This is the accumulated wealth of centuries, guarded by whatever lurks in this chamber.",
+          "statuses": ["vast", "guarded"],
+          "actions": ["examine", "take treasure", "appraise"]
+        }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "heavy-wooden-door",
+      "name": "Heavy Wooden Door",
+      "description": "A reinforced wooden door bound with iron bands, between the dungeon entrance and the hall of torches.",
+      "statuses": ["ajar"],
+      "connects": ["dungeon-entrance", "torch-hall"]
+    },
+    {
+      "id": "dark-passage",
+      "name": "Dark Passage",
+      "description": "A narrow, lightless passage running north from the hall of torches to an old guard room.",
+      "statuses": ["dark"],
+      "connects": ["torch-hall", "guard-room"]
+    },
+    {
+      "id": "iron-gate",
+      "name": "Iron Gate",
+      "description": "A heavy iron gate between the hall of torches and a vault to the east. The lock is old, and the mechanism looks breakable.",
+      "statuses": ["locked", "rusted"],
+      "connects": ["torch-hall", "treasure-room"]
+    },
+    {
+      "id": "stone-stairs",
+      "name": "Worn Stone Stairs",
+      "description": "Steep stone steps between the guard room above and the burial crypt below. Cold air carrying a faint smell of decay rises from the bottom.",
+      "statuses": ["dark", "steep"],
+      "connects": ["guard-room", "crypt"]
+    },
+    {
+      "id": "dark-archway",
+      "name": "Dark Archway",
+      "description": "A carved archway between the burial crypt and a chamber to the east. Strange symbols glow faintly around its edges.",
+      "statuses": ["ominous", "glowing"],
+      "connects": ["crypt", "boss-chamber"]
+    }
+  ]
+}

@@ -1,0 +1,341 @@
+{
+  "name": "West of House",
+  "description": "You are standing in an open field west of a white house, with a boarded front door. There is a small mailbox here. The opening of Zork: circle the house, find a way in, and see what lies beneath the rug.",
+  "startingRoom": "west-of-house",
+  "player": {
+    "name": "Adventurer",
+    "description": "An adventurer of uncertain background and excellent taste in mailboxes."
+  },
+  "rooms": [
+    {
+      "id": "west-of-house",
+      "name": "West of House",
+      "description": "You are standing in an open field west of a white house. The front door is boarded shut, and whoever did it was thorough about it. A small mailbox stands nearby. Paths lead around the house to the north and south, and a forest rises to the west.",
+      "fixtures": [
+        {
+          "id": "mailbox",
+          "name": "Small Mailbox",
+          "description": "A small mailbox on a wooden post, its flag down and its paint flaking.",
+          "statuses": ["closed"],
+          "actions": ["open", "close", "look inside"]
+        },
+        {
+          "id": "leaflet",
+          "name": "Leaflet",
+          "description": "A leaflet tucked inside the mailbox. It reads: \"WELCOME TO ZORK! ZORK is a game of adventure, danger, and low cunning.\"",
+          "statuses": ["in-mailbox"],
+          "actions": ["read", "take"]
+        },
+        {
+          "id": "boarded-door",
+          "name": "Boarded Door",
+          "description": "The front door of the house, nailed over with weathered planks. It is not going to open.",
+          "statuses": ["boarded"],
+          "actions": ["pry", "knock"]
+        }
+      ]
+    },
+    {
+      "id": "north-of-house",
+      "name": "North of House",
+      "description": "You are facing the north side of the white house. There is no door here, and all the windows are boarded. A narrow path winds north into the trees, and the path around the house continues west and east.",
+      "fixtures": [
+        {
+          "id": "north-windows",
+          "name": "Boarded Windows",
+          "description": "Planks nailed across every window. Someone wanted very much to keep something in or out.",
+          "statuses": ["boarded"],
+          "actions": ["examine", "pull"]
+        }
+      ]
+    },
+    {
+      "id": "south-of-house",
+      "name": "South of House",
+      "description": "You are facing the south side of the white house. There is no door here, and all the windows are boarded. The path around the house continues west and east.",
+      "fixtures": [
+        {
+          "id": "south-windows",
+          "name": "Boarded Windows",
+          "description": "More boarded windows. The house is consistent, at least.",
+          "statuses": ["boarded"],
+          "actions": ["examine", "pull"]
+        }
+      ]
+    },
+    {
+      "id": "behind-house",
+      "name": "Behind House",
+      "description": "You are behind the white house. In one corner of the house there is a small window, and unlike every other opening in this house, it is slightly ajar. Paths lead around the house to the north and south.",
+      "fixtures": []
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "description": "This is a forest, with trees in all directions. To the east there appears to be sunlight, and the edge of a field. Every other direction looks exactly like this one.",
+      "statuses": ["dim"],
+      "fixtures": [
+        {
+          "id": "forest-trees",
+          "name": "Trees",
+          "description": "Tall, old, and identical. Wandering among them would be a fine way to get lost.",
+          "statuses": ["dense"],
+          "actions": ["examine", "climb"]
+        }
+      ]
+    },
+    {
+      "id": "forest-path",
+      "name": "Forest Path",
+      "description": "This is a path winding through a dimly lit forest. One particularly large tree with some low branches stands at the edge of the path. The path runs south toward the house and north toward a clearing.",
+      "statuses": ["dim"],
+      "fixtures": [
+        {
+          "id": "large-tree",
+          "name": "Large Tree",
+          "description": "A huge tree with low branches that practically ask to be climbed.",
+          "statuses": ["climbable"],
+          "actions": ["examine", "climb"]
+        }
+      ]
+    },
+    {
+      "id": "up-a-tree",
+      "name": "Up a Tree",
+      "description": "You are about ten feet above the ground, nestled among some large branches. The nearest branch above you is out of reach. Beside you on the branch is a small bird's nest.",
+      "fixtures": [
+        {
+          "id": "birds-nest",
+          "name": "Bird's Nest",
+          "description": "A small nest woven from twigs and grass. In it sits a large egg encrusted with precious jewels, apparently scavenged by a childless songbird.",
+          "statuses": ["occupied"],
+          "actions": ["examine", "look inside", "take"]
+        },
+        {
+          "id": "jeweled-egg",
+          "name": "Jewel-Encrusted Egg",
+          "description": "A large egg covered in jewels, with a delicate gold clasp along one side. It is closed, and looks like it would not survive careless handling.",
+          "statuses": ["closed", "fragile", "in-nest"],
+          "actions": ["examine", "take", "open"]
+        }
+      ]
+    },
+    {
+      "id": "clearing",
+      "name": "Clearing",
+      "description": "You are in a clearing, with a forest surrounding you on all sides. A path leads south. On the ground is a pile of leaves.",
+      "fixtures": [
+        {
+          "id": "pile-of-leaves",
+          "name": "Pile of Leaves",
+          "description": "A heap of damp autumn leaves. It looks as though something might be underneath.",
+          "statuses": ["undisturbed"],
+          "actions": ["move", "search", "take"]
+        },
+        {
+          "id": "grating",
+          "name": "Grating",
+          "description": "An iron grating set into the ground. It is locked, and judging by the lock, it opens from below.",
+          "statuses": ["hidden", "locked"],
+          "actions": ["examine", "open", "unlock"]
+        }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "description": "You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads west, a dark staircase leads upward, and a dark chimney leads down. To the east is a small window which is open.",
+      "fixtures": [
+        {
+          "id": "kitchen-table",
+          "name": "Kitchen Table",
+          "description": "A sturdy table, recently used for preparing food.",
+          "actions": ["examine", "search"]
+        },
+        {
+          "id": "brown-sack",
+          "name": "Brown Sack",
+          "description": "An elongated brown sack, smelling of hot peppers. It is folded shut.",
+          "statuses": ["closed", "on-table"],
+          "actions": ["open", "smell", "take"]
+        },
+        {
+          "id": "glass-bottle",
+          "name": "Glass Bottle",
+          "description": "A clear glass bottle on the table, with a quantity of water inside.",
+          "statuses": ["closed", "on-table", "full"],
+          "actions": ["take", "open", "drink"]
+        },
+        {
+          "id": "chimney",
+          "name": "Chimney",
+          "description": "A dark, narrow chimney. Too narrow to climb while carrying much of anything.",
+          "statuses": ["dark"],
+          "actions": ["examine", "climb"]
+        }
+      ]
+    },
+    {
+      "id": "attic",
+      "name": "Attic",
+      "description": "This is the attic. The only exit is a stairway leading down. A large coil of rope is lying in the corner, and on a table is a nasty-looking knife.",
+      "statuses": ["dark"],
+      "fixtures": [
+        {
+          "id": "coil-of-rope",
+          "name": "Coil of Rope",
+          "description": "A large coil of sturdy rope. It looks long enough to be useful somewhere deep.",
+          "actions": ["take", "examine", "uncoil"]
+        },
+        {
+          "id": "nasty-knife",
+          "name": "Nasty Knife",
+          "description": "A knife with a wicked edge, resting on a small table.",
+          "statuses": ["on-table"],
+          "actions": ["take", "examine"]
+        }
+      ]
+    },
+    {
+      "id": "living-room",
+      "name": "Living Room",
+      "description": "You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, and a trophy case. A large oriental rug lies in the center of the room. Above the trophy case hangs an elvish sword of great antiquity, and a battery-powered brass lantern sits on the case.",
+      "fixtures": [
+        {
+          "id": "trophy-case",
+          "name": "Trophy Case",
+          "description": "A glass case, conspicuously empty. It expects to be filled with treasures.",
+          "statuses": ["closed", "empty"],
+          "actions": ["open", "close", "examine"]
+        },
+        {
+          "id": "oriental-rug",
+          "name": "Oriental Rug",
+          "description": "A heavy, beautiful rug, worn thin in a rectangle near its centre. It does not lie quite flat.",
+          "statuses": ["flat"],
+          "actions": ["move", "look under"]
+        },
+        {
+          "id": "gothic-door",
+          "name": "Wooden Door",
+          "description": "A wooden door covered in strange gothic lettering. It is nailed firmly shut.",
+          "statuses": ["nailed-shut"],
+          "actions": ["open", "read", "examine"]
+        },
+        {
+          "id": "elvish-sword",
+          "name": "Elvish Sword",
+          "description": "An elvish sword of great antiquity, hanging above the trophy case. Its blade glows faintly when danger is near.",
+          "statuses": ["hanging"],
+          "actions": ["take", "examine"]
+        },
+        {
+          "id": "brass-lantern",
+          "name": "Brass Lantern",
+          "description": "A battery-powered brass lantern, sitting on the trophy case.",
+          "statuses": ["off"],
+          "actions": ["take", "turn on", "turn off"]
+        }
+      ]
+    },
+    {
+      "id": "cellar",
+      "name": "Cellar",
+      "description": "You are in a dark and damp cellar with a narrow passageway leading north and a crawlway to the south. A steep metal ramp rises to the west, too slippery to climb. Above you, the trap door you came through.",
+      "statuses": ["dark", "damp"],
+      "fixtures": [
+        {
+          "id": "metal-ramp",
+          "name": "Metal Ramp",
+          "description": "A steep, slick metal ramp. You are not going to get up it.",
+          "statuses": ["slippery"],
+          "actions": ["climb", "examine"]
+        },
+        {
+          "id": "narrow-passage",
+          "name": "Narrow Passageway",
+          "description": "A narrow passage leading north into the dark. From somewhere beyond comes an unpleasant smell, and possibly a grunt.",
+          "statuses": ["dark"],
+          "actions": ["examine", "listen"]
+        }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "northwest-path",
+      "name": "Northwest Path",
+      "description": "A narrow path curling around the northwest corner of the house, between the open field and the north side.",
+      "connects": ["west-of-house", "north-of-house"]
+    },
+    {
+      "id": "southwest-path",
+      "name": "Southwest Path",
+      "description": "A narrow path curling around the southwest corner of the house, between the open field and the south side.",
+      "connects": ["west-of-house", "south-of-house"]
+    },
+    {
+      "id": "forest-edge",
+      "name": "Forest Edge",
+      "description": "Where the open field west of the house gives way to the trees. Sunlight marks the field side.",
+      "connects": ["west-of-house", "forest"]
+    },
+    {
+      "id": "northeast-path",
+      "name": "Northeast Path",
+      "description": "The path around the northeast corner of the house, between the north side and the back.",
+      "connects": ["north-of-house", "behind-house"]
+    },
+    {
+      "id": "southeast-path",
+      "name": "Southeast Path",
+      "description": "The path around the southeast corner of the house, between the south side and the back.",
+      "connects": ["south-of-house", "behind-house"]
+    },
+    {
+      "id": "forest-trail",
+      "name": "Forest Trail",
+      "description": "A narrow trail between the north side of the house and the dim forest path to the north.",
+      "connects": ["north-of-house", "forest-path"]
+    },
+    {
+      "id": "clearing-trail",
+      "name": "Clearing Trail",
+      "description": "The trail running north from the forest path into a clearing.",
+      "connects": ["forest-path", "clearing"]
+    },
+    {
+      "id": "low-branches",
+      "name": "Low Branches",
+      "description": "The low branches of the large tree beside the forest path, close enough to climb up into or down from.",
+      "connects": ["forest-path", "up-a-tree"]
+    },
+    {
+      "id": "kitchen-window",
+      "name": "Kitchen Window",
+      "description": "A small window in the back corner of the house, between the yard behind it and the kitchen. It is just wide enough to climb through.",
+      "statuses": ["ajar"],
+      "connects": ["behind-house", "kitchen"]
+    },
+    {
+      "id": "kitchen-passage",
+      "name": "Kitchen Passage",
+      "description": "A short passage joining the kitchen and the living room.",
+      "connects": ["kitchen", "living-room"]
+    },
+    {
+      "id": "attic-stairs",
+      "name": "Dark Staircase",
+      "description": "A dark staircase climbing from the kitchen up into the attic.",
+      "statuses": ["dark"],
+      "connects": ["kitchen", "attic"]
+    },
+    {
+      "id": "trap-door",
+      "name": "Trap Door",
+      "description": "A dusty trap door in the living room floor, opening onto a dark cellar below. From above, the oriental rug hides it completely.",
+      "statuses": ["hidden", "closed"],
+      "connects": ["living-room", "cellar"]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@rtz/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/app.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@kurrent/kurrentdb-client": "^1.3.1",
+    "@langchain/langgraph": "^1.4.15",
+    "@langchain/openai": "^1.5.13",
+    "dedent": "^1.7.2",
+    "express": "^5.2.1",
+    "neo4j-driver": "^5.28.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.5.1",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3"
+  }
+}

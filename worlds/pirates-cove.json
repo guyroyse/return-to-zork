@@ -1,0 +1,142 @@
+{
+  "name": "Pirate's Cove",
+  "description": "You're captain of a pirate ship under full sail. Climb to the crow's nest, search the cargo hold, and find the cache only the captain is supposed to know about.",
+  "startingRoom": "ship-deck",
+  "player": {
+    "name": "Captain",
+    "description": "A cunning pirate captain seeking fortune on the high seas"
+  },
+  "rooms": [
+    {
+      "id": "ship-deck",
+      "name": "Main Deck",
+      "description": "The weathered planks of the ship's main deck creak beneath your boots as the vessel rocks gently on the waves. Salt spray mists the air, and the Jolly Roger snaps in the wind above. Rigging stretches up to the masts, and cannons line the rails, ready for action. The crew bustles about their duties, casting occasional glances your way. Stairs lead down to the lower deck, and a ladder climbs to the crow's nest.",
+      "statuses": ["sailing", "armed"],
+      "fixtures": [
+        {
+          "id": "ship-wheel",
+          "name": "Ship's Wheel",
+          "description": "The massive wooden wheel controls the ship's rudder. Its worn handles bear the marks of countless voyages, and a compass is mounted at its center showing current heading.",
+          "statuses": ["functional", "steady"],
+          "actions": ["steer", "check heading", "adjust course"]
+        },
+        {
+          "id": "cannons",
+          "name": "Deck Cannons",
+          "description": "A row of iron cannons point out from the gun ports, their barrels cleaned and ready. Powder kegs and cannonballs are secured nearby, and the gun crews keep them maintained.",
+          "statuses": ["loaded", "ready"],
+          "actions": ["fire", "load", "aim"]
+        }
+      ]
+    },
+    {
+      "id": "lower-deck",
+      "name": "Lower Deck",
+      "description": "The cramped lower deck smells of tar, gunpowder, and unwashed sailors. Hammocks swing with the ship's motion, and barrels of supplies are lashed to the bulkheads. Lanterns cast flickering light across the rough wooden walls. The crew's quarters are here, along with storage for provisions and ammunition. Stairs lead up to the main deck and down to the hold.",
+      "statuses": ["crowded", "dim"],
+      "fixtures": [
+        {
+          "id": "supply-barrels",
+          "name": "Supply Barrels",
+          "description": "Wooden barrels contain the ship's provisions: salted meat, hardtack, rum, fresh water, and gunpowder. They're secured with rope to prevent shifting in rough seas.",
+          "statuses": ["stocked", "lashed"],
+          "actions": ["inventory", "open", "secure"]
+        },
+        {
+          "id": "crew-hammocks",
+          "name": "Crew Hammocks",
+          "description": "Rows of canvas hammocks hang from the ceiling beams, swaying with the ship's movement. Personal belongings are stowed in sea chests beneath them.",
+          "statuses": ["occupied", "swaying"],
+          "actions": ["search", "rest"]
+        }
+      ]
+    },
+    {
+      "id": "crows-nest",
+      "name": "Crow's Nest",
+      "description": "High above the deck, the crow's nest offers a commanding view of the surrounding seas. The wind whips fiercely at this height, and the ship's motion is exaggerated. A spyglass rests in a holder, and the lookout keeps constant watch for ships, land, or danger. The horizon stretches endlessly in all directions. The ladder leads back down to the deck.",
+      "statuses": ["windy", "high"],
+      "fixtures": [
+        {
+          "id": "spyglass",
+          "name": "Captain's Spyglass",
+          "description": "A brass spyglass extends to reveal distant ships, coastlines, and weather patterns. Its lenses are kept meticulously clean for maximum clarity.",
+          "statuses": ["clean", "functional"],
+          "actions": ["scan horizon", "identify ship", "spot land"]
+        },
+        {
+          "id": "signal-flags",
+          "name": "Signal Flags",
+          "description": "Colorful flags used to communicate with other ships. Different combinations convey messages ranging from friendly greetings to declarations of war.",
+          "statuses": ["ready", "furled"],
+          "actions": ["raise", "signal", "lower"]
+        }
+      ]
+    },
+    {
+      "id": "cargo-hold",
+      "name": "Cargo Hold",
+      "description": "The ship's hold is dark and damp, with water sloshing in the bilge. Crates and chests are stacked and secured, containing plundered treasure, trade goods, and contraband. The smell of seawater and rotting wood permeates the air. Rats scurry in the shadows. A heavy hatch above leads back to the lower deck, and a hidden panel in the wall conceals the captain's secret cache.",
+      "statuses": ["dark", "damp"],
+      "fixtures": [
+        {
+          "id": "treasure-chests",
+          "name": "Plundered Treasure",
+          "description": "Iron-bound chests contain the crew's ill-gotten gains: gold doubloons, silver pieces, precious gems, and valuable trade goods. Heavy locks protect the most valuable items.",
+          "statuses": ["locked", "heavy"],
+          "actions": ["open", "count", "lock"]
+        }
+      ]
+    },
+    {
+      "id": "captains-cache",
+      "name": "Captain's Secret Cache",
+      "description": "A small hidden compartment contains the captain's personal treasures and secrets. Maps to buried treasure, letters of marque, a journal of voyages, and the most valuable pieces of plunder are secured here. A single lantern provides dim light. The hidden panel leads back to the cargo hold.",
+      "statuses": ["secret", "secure"],
+      "fixtures": [
+        {
+          "id": "treasure-maps",
+          "name": "Treasure Maps",
+          "description": "Rolled parchments marked with cryptic symbols, compass bearings, and landmarks. Each map leads to buried treasure on some distant island or hidden cove.",
+          "statuses": ["aged", "cryptic"],
+          "actions": ["read", "decipher", "follow"]
+        },
+        {
+          "id": "captains-journal",
+          "name": "Captain's Journal",
+          "description": "A leather-bound journal contains records of voyages, battles, plundered ships, and personal reflections. The pages are stained with salt water and rum.",
+          "statuses": ["worn", "private"],
+          "actions": ["read", "write", "hide"]
+        }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "deck-stairs",
+      "name": "Deck Stairs",
+      "description": "Wooden stairs between the main deck and the dimly lit lower deck.",
+      "connects": ["ship-deck", "lower-deck"]
+    },
+    {
+      "id": "rope-ladder",
+      "name": "Rope Ladder",
+      "description": "A rope ladder running up the main mast from the deck to the crow's nest high above.",
+      "statuses": ["swaying"],
+      "connects": ["ship-deck", "crows-nest"]
+    },
+    {
+      "id": "cargo-hatch",
+      "name": "Cargo Hatch",
+      "description": "A heavy hatch in the lower deck's floor, opening onto the cargo hold below.",
+      "connects": ["lower-deck", "cargo-hold"]
+    },
+    {
+      "id": "hidden-panel",
+      "name": "Hidden Wall Panel",
+      "description": "A section of the cargo hold's hull wall that is really a cunningly concealed panel. Slid aside, it opens onto the captain's secret compartment.",
+      "statuses": ["hidden", "closed"],
+      "connects": ["cargo-hold", "captains-cache"]
+    }
+  ]
+}

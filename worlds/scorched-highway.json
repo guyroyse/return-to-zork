@@ -1,0 +1,179 @@
+{
+  "name": "Scorched Highway",
+  "description": "The oil ran dry and the world burned. Out of gas on a dead highway, you'll need to scavenge a wrecked convoy, bargain in a scrap bazaar, and get past a warlord's refinery to find what's worth more than fuel.",
+  "startingRoom": "convoy-wreck",
+  "player": {
+    "name": "Road Warrior",
+    "description": "A lone driver of the wasteland, sunburnt and dust-caked, with a sawn-off shotgun and an empty tank"
+  },
+  "rooms": [
+    {
+      "id": "convoy-wreck",
+      "name": "Convoy Wreck",
+      "description": "A cracked highway runs straight across the salt flats into shimmering heat. A convoy died here: a tanker lies on its side, scorched black, and the shells of burned-out cars are scattered behind it. Vultures circle overhead. Your supercharged coupe sits on the shoulder, its driver's door hanging open. To the east, a rutted dirt track leads toward a ramshackle town of rusted metal.",
+      "statuses": ["scorching", "silent"],
+      "fixtures": [
+        {
+          "id": "overturned-tanker",
+          "name": "Overturned Tanker",
+          "description": "A fuel tanker on its side, its hull peppered with bullet holes and blackened by fire. A valve near the rear is still intact, and the smell of fuel hangs faintly in the air.",
+          "statuses": ["scorched", "valve closed"],
+          "actions": ["search", "open valve", "siphon"]
+        },
+        {
+          "id": "dead-cb-radio",
+          "name": "Cab CB Radio",
+          "description": "A CB radio in the tanker's crushed cab, its handset dangling by the cord. The dial still glows faintly, and static hisses from the speaker.",
+          "statuses": ["crackling", "powered"],
+          "actions": ["listen", "tune", "call out"]
+        }
+      ]
+    },
+    {
+      "id": "coupe",
+      "name": "Supercharged Coupe",
+      "description": "The cracked leather seat of your black coupe, too hot to touch. A blower juts through the hood in front of you, and the dashboard is held together with wire and tape. The fuel gauge needle rests on empty. The driver's door opens back out onto the highway.",
+      "statuses": ["out of fuel", "cramped"],
+      "fixtures": [
+        {
+          "id": "fuel-gauge",
+          "name": "Fuel Gauge",
+          "description": "A cracked dashboard gauge, its needle pinned against the E. Someone scratched a skull beside it.",
+          "statuses": ["empty"],
+          "actions": ["tap", "read"]
+        },
+        {
+          "id": "glovebox",
+          "name": "Glovebox",
+          "description": "A battered glovebox with a broken latch held shut by a twist of wire.",
+          "statuses": ["closed", "wired shut"],
+          "actions": ["open", "search", "close"]
+        }
+      ]
+    },
+    {
+      "id": "rust-bazaar",
+      "name": "Rust Bazaar",
+      "description": "A town built from car hulks, shipping containers, and sheet metal, crowded with scavengers bartering under ragged awnings. Smoke from cooking fires drifts between the stalls, and armed guards with chains and spiked helmets watch from the walls. The dirt track leads back west to the highway. To the north, a cage door opens on a roaring crowd, and to the east a chain-link gate topped with razor wire guards the refinery.",
+      "statuses": ["crowded", "noisy"],
+      "fixtures": [
+        {
+          "id": "scrap-trader",
+          "name": "Scrap Trader",
+          "description": "A one-eyed trader behind a counter made from a car door. Her stall is piled with spark plugs, ammunition, canteens, and engine parts. She trades for anything useful, and her price for a can of fuel is steep.",
+          "statuses": ["shrewd", "open for business"],
+          "actions": ["trade", "haggle", "ask about fuel"]
+        },
+        {
+          "id": "water-barrel",
+          "name": "Rationed Water Barrel",
+          "description": "A rusted drum of brackish water, padlocked and watched by a guard with a crossbow. A crude sign reads ONE CUP PER DAY.",
+          "statuses": ["locked", "guarded"],
+          "actions": ["drink", "ask the guard", "inspect"]
+        }
+      ]
+    },
+    {
+      "id": "fighting-pit",
+      "name": "Fighting Pit",
+      "description": "A sunken arena of packed dirt ringed by scaffolding, where the crowd howls for blood. Weapons hang from chains above the sand, and the walls are lined with car bumpers and old tyres. A painted board promises a full can of fuel to whoever walks out on their own. The cage door leads back to the bazaar.",
+      "statuses": ["roaring", "dangerous"],
+      "fixtures": [
+        {
+          "id": "hanging-weapons",
+          "name": "Hanging Weapons",
+          "description": "A sledgehammer, a chainsaw, and a length of rebar sway on chains high above the arena floor, just out of reach.",
+          "statuses": ["out of reach", "swaying"],
+          "actions": ["jump for", "climb", "pull chain"]
+        },
+        {
+          "id": "prize-board",
+          "name": "Prize Board",
+          "description": "A sheet of corrugated metal daubed with paint: TWO GO IN, ONE GETS FUEL. A full jerry can hangs from a hook beneath it.",
+          "statuses": ["prize hanging"],
+          "actions": ["read", "challenge", "take the can"]
+        }
+      ]
+    },
+    {
+      "id": "refinery",
+      "name": "Warlord's Refinery",
+      "description": "A cluster of patched storage tanks and flaring pipes, guarded by pale, shaven-headed war boys who chant from the catwalks. A gas flare roars at the top of the tower, and the warlord's skull banner hangs over the yard. The chain-link gate leads back west to the bazaar. A rusted hatch is half buried in the sand beside the largest tank.",
+      "statuses": ["guarded", "roaring"],
+      "fixtures": [
+        {
+          "id": "fuel-tanks",
+          "name": "Fuel Storage Tanks",
+          "description": "Massive patched tanks of refined fuel, more than the whole bazaar has seen in years. Each outlet valve is locked with a heavy chain.",
+          "statuses": ["full", "chained"],
+          "actions": ["inspect", "break chain", "fill can"]
+        },
+        {
+          "id": "war-drums",
+          "name": "War Drums",
+          "description": "Oil drums stretched with hide, beaten by war boys to rally the refinery whenever an intruder is spotted.",
+          "statuses": ["silent"],
+          "actions": ["beat", "sabotage"]
+        }
+      ]
+    },
+    {
+      "id": "cistern",
+      "name": "Hidden Cistern",
+      "description": "A cool, dark chamber beneath the refinery, its concrete walls slick with condensation. A vast pool of clean water stretches into the shadows, the warlord's true treasure, kept secret from the thirsty town above. Pumps and pipes climb toward the surface. The rusted hatch leads back up to the refinery yard.",
+      "statuses": ["dark", "cool"],
+      "fixtures": [
+        {
+          "id": "water-pool",
+          "name": "Clean Water Pool",
+          "description": "Still, clear water, more than anyone in the wasteland has seen in a lifetime. It is cold and smells of nothing at all.",
+          "statuses": ["clean", "vast"],
+          "actions": ["drink", "fill canteen"]
+        },
+        {
+          "id": "pump-valve",
+          "name": "Pump Valve",
+          "description": "A great iron wheel that controls the pumps. A pipe from it runs upward toward the town. Opened, it would send the water flowing to everyone.",
+          "statuses": ["closed"],
+          "actions": ["open", "close", "turn"]
+        }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "drivers-door",
+      "name": "Driver's Door",
+      "description": "The dented driver's door of your coupe, between the highway shoulder and the driver's seat.",
+      "statuses": ["open"],
+      "connects": ["convoy-wreck", "coupe"]
+    },
+    {
+      "id": "dirt-track",
+      "name": "Dirt Track",
+      "description": "A rutted dirt track running east from the highway to the bazaar's scrap-metal walls.",
+      "connects": ["convoy-wreck", "rust-bazaar"]
+    },
+    {
+      "id": "cage-door",
+      "name": "Cage Door",
+      "description": "A door of welded rebar between the bazaar and the fighting pit, rattling every time the crowd roars.",
+      "statuses": ["open"],
+      "connects": ["rust-bazaar", "fighting-pit"]
+    },
+    {
+      "id": "refinery-gate",
+      "name": "Refinery Gate",
+      "description": "A chain-link gate topped with razor wire, between the bazaar and the warlord's refinery. A heavy padlock holds it shut, and a war boy sleeps against the post.",
+      "statuses": ["locked", "guarded"],
+      "connects": ["rust-bazaar", "refinery"]
+    },
+    {
+      "id": "rusted-hatch",
+      "name": "Rusted Hatch",
+      "description": "A rusted iron hatch half buried in the sand of the refinery yard, leading down into the dark below.",
+      "statuses": ["closed", "half buried"],
+      "connects": ["refinery", "cistern"]
+    }
+  ]
+}

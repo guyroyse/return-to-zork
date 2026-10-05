@@ -1,0 +1,121 @@
+{
+  "name": "Neon Streets",
+  "description": "Rain, neon, and megacorp money. Work your way from a downtown alley through the rooftops and a black market to a hidden haven where netrunners trade secrets.",
+  "startingRoom": "downtown-alley",
+  "player": {
+    "name": "Runner",
+    "description": "A street-smart netrunner navigating the neon-soaked underbelly of the megacity"
+  },
+  "rooms": [
+    {
+      "id": "downtown-alley",
+      "name": "Rain-Slicked Alley",
+      "description": "Neon signs cast flickering red and blue light across puddles of oily water in this narrow downtown alley. Steam rises from grates in the cracked pavement, and the constant hum of hovercars overhead mingles with the bass-heavy music bleeding from nearby clubs. Graffiti tags glow with bioluminescent paint on the grimy walls. A rusted fire escape leads up to the rooftops, while a reinforced door marks the entrance to the underground market.",
+      "statuses": ["rainy", "neon-lit"],
+      "fixtures": [
+        {
+          "id": "data-terminal",
+          "name": "Public Data Terminal",
+          "description": "A battered public access terminal flickers with corrupted advertisements and system warnings. The cracked screen displays a login prompt, and someone has jury-rigged additional ports into its base. Corporate security protocols are visible but outdated.",
+          "statuses": ["active", "unsecured"],
+          "actions": ["hack", "access", "upload virus"]
+        },
+        {
+          "id": "dumpster",
+          "name": "Recycling Dumpster",
+          "description": "A massive industrial dumpster overflows with discarded tech components, food containers, and unidentifiable corporate waste. The smell is overwhelming, but valuable salvage often ends up here.",
+          "statuses": ["full", "smelly"],
+          "actions": ["search", "hide behind"]
+        }
+      ]
+    },
+    {
+      "id": "rooftop-access",
+      "name": "Neon Rooftop",
+      "description": "The city sprawls endlessly in all directions, a sea of glowing advertisements and towering arcologies piercing the smog-choked sky. Wind whips across the rooftop, carrying the scent of ozone and fried food. Satellite dishes and antenna arrays cluster around a small maintenance shed. The fire escape leads back down to the alley.",
+      "statuses": ["windy", "exposed"],
+      "fixtures": [
+        {
+          "id": "antenna-array",
+          "name": "Satellite Array",
+          "description": "A cluster of satellite dishes and communication antennas, all pointed at different sectors of the city. Signal lights blink in complex patterns, and exposed wiring suggests someone has been tapping into the feeds.",
+          "statuses": ["active", "modified"],
+          "actions": ["tap signal", "redirect", "examine"]
+        },
+        {
+          "id": "maintenance-shed",
+          "name": "Maintenance Shed",
+          "description": "A small corrugated metal shed houses electrical panels and climate control systems for the building below. The lock has been forced open multiple times.",
+          "statuses": ["unlocked", "weathered"],
+          "actions": ["open", "search", "hide in"]
+        }
+      ]
+    },
+    {
+      "id": "underground-market",
+      "name": "Black Market Hub",
+      "description": "The underground market thrums with activity beneath the city streets. Vendors hawk illegal cyberware, stolen corporate data, and black-market pharmaceuticals from makeshift stalls. Holographic displays flicker with contraband goods, and the air is thick with cigarette smoke and the ozone smell of active neural interfaces. Armed guards watch from the shadows. A narrow passage leads deeper into the underground network.",
+      "statuses": ["crowded", "illegal"],
+      "fixtures": [
+        {
+          "id": "vendor-stall",
+          "name": "Cyberware Vendor",
+          "description": "A cluttered stall displays an array of neural implants, optical enhancements, and reflex boosters. The vendor, a heavily augmented woman with chrome arms, eyes you suspiciously.",
+          "statuses": ["open", "suspicious"],
+          "actions": ["browse", "haggle", "purchase"]
+        },
+        {
+          "id": "security-drone",
+          "name": "Patrol Drone",
+          "description": "A small security drone hovers near the ceiling, its camera eye sweeping the market in regular patterns. Red warning lights blink on its chassis.",
+          "statuses": ["active", "patrolling"],
+          "actions": ["hack", "avoid", "disable"]
+        }
+      ]
+    },
+    {
+      "id": "data-haven",
+      "name": "Netrunner's Haven",
+      "description": "A hidden chamber deep in the maintenance tunnels serves as a secret data haven for netrunners. Banks of servers hum with activity, their cooling fans creating a constant white noise. Multiple screens display scrolling code and network traffic. The walls are lined with stolen corporate hardware and custom-built rigs. A single tunnel leads back to the market.",
+      "statuses": ["secure", "hidden"],
+      "fixtures": [
+        {
+          "id": "server-bank",
+          "name": "Data Servers",
+          "description": "Rows of humming servers store terabytes of stolen corporate data, encrypted communications, and black-market software. Status lights blink in mesmerizing patterns.",
+          "statuses": ["active", "encrypted"],
+          "actions": ["access", "download", "upload"]
+        },
+        {
+          "id": "hacking-rig",
+          "name": "Custom Cyberdeck",
+          "description": "A state-of-the-art hacking rig with multiple neural interface ports and holographic displays. Someone has left it running, with several active connections to corporate networks.",
+          "statuses": ["active", "connected"],
+          "actions": ["jack in", "trace connections", "disconnect"]
+        }
+      ]
+    }
+  ],
+  "doors": [
+    {
+      "id": "fire-escape",
+      "name": "Fire Escape",
+      "description": "A rusty metal fire escape zigzagging up the side of the building, between the alley and the rooftops.",
+      "connects": ["downtown-alley", "rooftop-access"]
+    },
+    {
+      "id": "reinforced-door",
+      "name": "Reinforced Door",
+      "description": "A heavy steel door with a biometric scanner and multiple deadbolts, between the alley and the underground market below. Muffled voices and electronic music pulse through it.",
+      "statuses": ["locked"],
+      "connects": ["downtown-alley", "underground-market"]
+    },
+    {
+      "id": "service-tunnel",
+      "name": "Service Tunnel",
+      "description": "A dark maintenance tunnel running from the underground market deeper beneath the city to a netrunners' haven. Its entrance on the market side is easy to miss.",
+      "statuses": ["dark", "hidden"],
+      "connects": ["underground-market", "data-haven"]
+    }
+  ]
+}

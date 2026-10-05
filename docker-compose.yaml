@@ -1,0 +1,64 @@
+name: rtz
+
+services:
+  db:
+    image: neo4j:latest
+    container_name: rtz-neo4j
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - ./data:/data
+
+  turns:
+    image: kurrentplatform/kurrentdb:latest
+    container_name: rtz-kurrentdb
+    environment:
+      KURRENTDB_INSECURE: 'true'
+    ports:
+      - '2113:2113'
+    volumes:
+      - turns:/var/lib/kurrentdb
+
+  api:
+    build:
+      context: ./api
+    container_name: rtz-api
+    environment:
+      PORT: 3000
+      NEO4J_URI: bolt://db:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: password
+      KURRENTDB_URI: kurrentdb://turns:2113?tls=false
+      WORLD_DIR: /worlds
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-6-luna}
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+      - ./worlds:/worlds:ro
+    depends_on:
+      - db
+      - turns
+
+  web:
+    build:
+      context: ./web
+    container_name: rtz-web
+    environment:
+      VITE_PORT: 5173
+      VITE_API_PROXY_TARGET: http://api:3000
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    depends_on:
+      - api
+
+volumes:
+  turns:
